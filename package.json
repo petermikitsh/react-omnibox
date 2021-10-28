@@ -20,6 +20,10 @@
   "homepage": "https://github.com/petermikitsh/react-omnibox#readme",
   "devDependencies": {
     "@babel/core": "^7.15.8",
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.0.5",
+    "@mui/material": "^5.0.6",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
