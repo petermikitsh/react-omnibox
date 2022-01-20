@@ -470,4 +470,7 @@ export const omniboxTheme: ThemeOptions = {
     snackbar: 1400,
     tooltip: 1500,
   },
+  typography: {
+    fontFamily: "inherit",
+  },
 };
