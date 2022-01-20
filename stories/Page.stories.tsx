@@ -27,7 +27,10 @@ const Template: ComponentStory<typeof Omnibox> = (
 
   return (
     <>
-      <SearchButton onClick={() => setOpen((prev) => !prev)} />
+      <SearchButton
+        onClick={() => setOpen((prev) => !prev)}
+        langCode={args.langCode}
+      />
       <Omnibox
         {...args}
         open={open}
@@ -128,4 +131,36 @@ Links.args = {
   ...searchEngineOptions,
   open: true,
   getOptionUrl: (opt) => opt.url,
+};
+
+export const Spanish: Story = Template.bind({});
+Spanish.args = {
+  ...searchEngineOptions,
+  open: true,
+  getOptionUrl: (opt) => opt.url,
+  langCode: "es",
+};
+
+export const German: Story = Template.bind({});
+German.args = {
+  ...searchEngineOptions,
+  open: true,
+  getOptionUrl: (opt) => opt.url,
+  langCode: "de",
+};
+
+export const French: Story = Template.bind({});
+French.args = {
+  ...searchEngineOptions,
+  open: true,
+  getOptionUrl: (opt) => opt.url,
+  langCode: "fr",
+};
+
+export const Japanese: Story = Template.bind({});
+Japanese.args = {
+  ...searchEngineOptions,
+  open: true,
+  getOptionUrl: (opt) => opt.url,
+  langCode: "ja",
 };

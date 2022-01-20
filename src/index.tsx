@@ -22,6 +22,7 @@ import match from "autosuggest-highlight/match";
 import parse from "autosuggest-highlight/parse";
 import { omniboxTheme } from "./theme";
 import { Search } from "@mui/icons-material";
+import { langCode, getTranslation } from "./i18n";
 export interface SuggestedSearchItem {
   id: string;
   value: string;
@@ -41,6 +42,7 @@ export interface OmniboxProps<T>
   suggestedSearchItems: SuggestedSearchItem[];
   startContent?: React.ReactNode;
   getOptionUrl?: (option: T) => string | undefined;
+  langCode?: langCode;
 }
 
 export const Omnibox = <T,>({
@@ -54,6 +56,7 @@ export const Omnibox = <T,>({
   onQueryChange,
   suggestedSearchItems,
   startContent = null,
+  langCode,
 }: OmniboxProps<T>) => {
   const noQuery = query === "";
   const textField = useRef<HTMLInputElement>();
@@ -151,7 +154,7 @@ export const Omnibox = <T,>({
                   <TextField
                     inputRef={textField}
                     variant="standard"
-                    placeholder="Search..."
+                    placeholder={getTranslation("search", langCode)}
                     value={query}
                     onChange={(e) => {
                       onQueryChange(e.target.value);
@@ -319,9 +322,10 @@ export const Omnibox = <T,>({
 
 export interface SearchButtonProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
+  langCode?: langCode;
 }
 
-export const SearchButton = ({ onClick }: SearchButtonProps) => {
+export const SearchButton = ({ onClick, langCode }: SearchButtonProps) => {
   const macOS = window.navigator.platform.toUpperCase().indexOf("MAC") >= 0;
   return (
     <Box<"button">
@@ -357,7 +361,7 @@ export const SearchButton = ({ onClick }: SearchButtonProps) => {
         component="span"
         sx={{ marginLeft: "10px", marginRight: "auto", fontSize: "16px" }}
       >
-        Search...
+        {getTranslation("search", langCode)}
       </Box>
       <Box
         component="span"
