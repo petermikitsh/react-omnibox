@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import {
   Box,
   Dialog,
@@ -56,6 +56,7 @@ export const Omnibox = <T,>({
   startContent = null,
 }: OmniboxProps<T>) => {
   const noQuery = query === "";
+  const textField = useRef<HTMLInputElement>();
 
   useHotkeys("command+k, ctrl+k", () => {}, {
     filter: (e) => {
@@ -63,6 +64,12 @@ export const Omnibox = <T,>({
       return true;
     },
   });
+
+  useEffect(() => {
+    if (open) {
+      textField.current?.focus();
+    }
+  }, [open]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -142,7 +149,7 @@ export const Omnibox = <T,>({
                     }}
                   />
                   <TextField
-                    autoFocus
+                    inputRef={textField}
                     variant="standard"
                     placeholder="Search..."
                     value={query}
