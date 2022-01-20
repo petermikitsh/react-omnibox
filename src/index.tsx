@@ -188,58 +188,58 @@ export const Omnibox = <T,>({
             const href = getOptionUrl?.(option);
 
             return (
-              <Box
-                component={href ? "a" : React.Fragment}
-                href={href}
-                sx={{ color: "inherit", textDecoration: "none" }}
+              <ListItem
+                {...props}
+                {...(href && {
+                  href,
+                  component: "a",
+                })}
+                sx={{
+                  color: "inherit",
+                  textDecoration: "none",
+                  height: theme.spacing(7),
+                  border: "1px solid transparent",
+                  borderBottom: `1px solid ${theme.palette.divider}`,
+                  borderRadius: theme.spacing(1),
+                  "&&.Mui-focused": {
+                    backgroundColor: theme.palette.background.default,
+                    color: theme.palette.primary.light,
+                    border: `1px solid ${theme.palette.primary.light}`,
+                  },
+                  "&.Mui-focused .OmniboxMatch": {
+                    textDecoration: "underline",
+                  },
+                  "&:not(.Mui-focused) .OmniboxMatch": {
+                    color: theme.palette.primary.light,
+                  },
+                  "&:not(.Mui-focused) .SearchHitIcon": {
+                    display: "none",
+                  },
+                }}
+                secondaryAction={
+                  <Box className="SearchHitIcon" sx={{ display: "flex" }}>
+                    <SearchHitSelectIcon />
+                  </Box>
+                }
               >
-                <ListItem
-                  {...props}
-                  sx={{
-                    height: theme.spacing(7),
-                    border: "1px solid transparent",
-                    borderBottom: `1px solid ${theme.palette.divider}`,
-                    borderRadius: theme.spacing(1),
-                    "&&.Mui-focused": {
-                      backgroundColor: theme.palette.background.default,
-                      color: theme.palette.primary.light,
-                      border: `1px solid ${theme.palette.primary.light}`,
-                    },
-                    "&.Mui-focused .OmniboxMatch": {
-                      textDecoration: "underline",
-                    },
-                    "&:not(.Mui-focused) .OmniboxMatch": {
-                      color: theme.palette.primary.light,
-                    },
-                    "&:not(.Mui-focused) .SearchHitIcon": {
-                      display: "none",
-                    },
-                  }}
-                  secondaryAction={
-                    <Box className="SearchHitIcon" sx={{ display: "flex" }}>
-                      <SearchHitSelectIcon />
+                <ListItemIcon sx={{ color: "inherit" }}>
+                  <SearchHitPageIcon />
+                </ListItemIcon>
+                <Typography variant="body2">
+                  {parts.map((part, index) => (
+                    <Box
+                      key={index}
+                      component="span"
+                      className={part.highlight ? "OmniboxMatch" : ""}
+                      sx={{
+                        fontWeight: part.highlight ? 700 : 400,
+                      }}
+                    >
+                      {part.text}
                     </Box>
-                  }
-                >
-                  <ListItemIcon sx={{ color: "inherit" }}>
-                    <SearchHitPageIcon />
-                  </ListItemIcon>
-                  <Typography variant="body2">
-                    {parts.map((part, index) => (
-                      <Box
-                        key={index}
-                        component="span"
-                        className={part.highlight ? "OmniboxMatch" : ""}
-                        sx={{
-                          fontWeight: part.highlight ? 700 : 400,
-                        }}
-                      >
-                        {part.text}
-                      </Box>
-                    ))}
-                  </Typography>
-                </ListItem>
-              </Box>
+                  ))}
+                </Typography>
+              </ListItem>
             );
           }}
           noOptionsText={
