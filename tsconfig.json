@@ -2,7 +2,7 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "strict": true,
-    "outDir": "dist",
+    "outDir": "dist/esm",
     "jsx": "react",
     "noImplicitAny": false,
     "declaration": true,
