@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Google",
+    "url": "//www.google.com"
+  },
+  {
+    "name": "Bing",
+    "url": "//www.bing.com"
+  },
+  {
+    "name": "Yahoo",
+    "url": "//www.yahoo.com"
+  },
+  {
+    "name": "Baidu",
+    "url": "//www.baidu.com"
+  },
+  {
+    "name": "AOL",
+    "url": "//www.aol.com"
+  },
+  {
+    "name": "Ask.com",
+    "url": "//www.ask.com"
+  },
+  {
+    "name": "DuckDuckGo",
+    "url": "//www.duckduckgo.com"
+  },
+  {
+    "name": "Wolfram Alpha",
+    "url": "//www.wolframalpha.com"
+  },
+  {
+    "name": "Yandex",
+    "url": "//www.yandex.com"
+  }
+]

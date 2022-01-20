@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "strict": true,
+    "outDir": "dist",
+    "jsx": "react",
+    "noImplicitAny": false,
+    "declaration": true,
+    "target": "ES5",
+    "module": "ES2015",
+    "moduleResolution": "Node",
+    "importHelpers": true
+  },
+  "include": ["src/**/*"]
+}
