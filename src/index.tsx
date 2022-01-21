@@ -187,7 +187,6 @@ export const Omnibox = <T,>({
             </DialogTitle>
           )}
           filterOptions={createFilterOptions({
-            matchFrom: "start",
             stringify: getOptionLabel,
           })}
           getOptionLabel={getOptionLabel}
