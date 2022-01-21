@@ -192,7 +192,9 @@ export const Omnibox = <T,>({
           getOptionLabel={getOptionLabel}
           ListboxProps={{ style: { maxHeight: "400px", position: "relative" } }}
           renderOption={(props, option) => {
-            const matches = match(getOptionLabel(option), `${query}`);
+            const matches = match(getOptionLabel(option), `${query}`, {
+              insideWords: true,
+            });
             const parts = parse(getOptionLabel(option), matches);
             const href = getOptionUrl?.(option);
 
