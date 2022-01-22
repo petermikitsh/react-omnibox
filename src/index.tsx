@@ -334,13 +334,13 @@ export const SearchButton = ({ onClick, langCode }: SearchButtonProps) => {
       sx={{
         "&:hover": {
           cursor: "pointer",
-          backgroundColor: (theme.palette as any).primaryDark["700"],
+          background: "rgba(255,255,255,0.04)",
         },
         "&:focus-visible": {
           outline: `1px solid ${(theme.palette as any).primaryDark["300"]}`,
           borderColor: (theme.palette as any).primaryDark["300"],
         },
-        backgroundColor: "#051E3C",
+        backgroundColor: "inherit",
         border: `1px solid ${(theme.palette as any).primaryDark["500"]}`,
         color: theme.palette.text.secondary,
         borderRadius: "10px",
@@ -367,7 +367,7 @@ export const SearchButton = ({ onClick, langCode }: SearchButtonProps) => {
       <Box
         component="span"
         sx={{
-          backgroundColor: (theme.palette as any).primaryDark["700"],
+          background: "rgba(255,255,255,0.04)",
           border: `1px solid ${(theme.palette as any).primaryDark["500"]}`,
           borderRadius: "5px",
           lineHeight: "24px",

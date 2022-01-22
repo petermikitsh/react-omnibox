@@ -290,15 +290,15 @@ export const omniboxTheme: ThemeOptions = {
       main: "#5090D3",
     },
     background: {
-      default: "#001E3C",
-      paper: "#0A1929",
+      default: "#13202d",
+      paper: "#13202d",
     },
     common: {
       black: "#1D1D1D",
       white: "#fff",
     },
     text: {
-      primary: "#fff",
+      primary: "rgba(255, 255, 255, 0.8)",
       secondary: "#AAB4BE",
       disabled: "rgba(255, 255, 255, 0.5)",
       // icon: "rgba(255, 255, 255, 0.5)",
