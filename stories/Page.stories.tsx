@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Story, ComponentMeta, ComponentStory } from "@storybook/react";
-import { SearchButton, Omnibox, OmniboxProps } from "../src";
+import { SearchButton, Omnibox, OmniboxProps, SearchButtonProps } from "../src";
 import sandwiches from "./mocks/sandwiches.json";
 import searchengines from "./mocks/searchengines.json";
 
@@ -18,7 +18,7 @@ interface Option {
 // @ts-ignore
 // https://stackoverflow.com/questions/59459943/typescript-react-how-do-you-pass-a-generic-to-a-react-componentpropstypeof-com
 const Template: ComponentStory<typeof Omnibox> = (
-  args: OmniboxProps<Option>
+  args: OmniboxProps<Option> & SearchButtonProps
 ) => {
   const [open, setOpen] = useState(args.open);
   const [query, setQuery] = useState<string>(args.query || "");
@@ -30,6 +30,7 @@ const Template: ComponentStory<typeof Omnibox> = (
       <SearchButton
         onClick={() => setOpen((prev) => !prev)}
         langCode={args.langCode}
+        label={args.label}
       />
       <Omnibox
         {...args}
@@ -163,4 +164,12 @@ Japanese.args = {
   open: true,
   getOptionUrl: (opt) => opt.url,
   langCode: "ja",
+};
+
+export const CustomLabel: Story = Template.bind({});
+CustomLabel.args = {
+  ...searchEngineOptions,
+  open: false,
+  getOptionUrl: (opt) => opt.url,
+  label: "Go to",
 };

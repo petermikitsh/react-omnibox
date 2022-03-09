@@ -324,10 +324,17 @@ export const Omnibox = <T,>({
 export interface SearchButtonProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   langCode?: langCode;
+  label?: React.ReactNode;
 }
 
-export const SearchButton = ({ onClick, langCode }: SearchButtonProps) => {
+export const SearchButton = ({
+  onClick,
+  langCode,
+  label,
+}: SearchButtonProps) => {
   const macOS = window.navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+
+  const displayLabel = label || getTranslation("search", langCode);
   return (
     <Box<"button">
       component="button"
@@ -362,7 +369,7 @@ export const SearchButton = ({ onClick, langCode }: SearchButtonProps) => {
         component="span"
         sx={{ marginLeft: "10px", marginRight: "auto", fontSize: "16px" }}
       >
-        {getTranslation("search", langCode)}
+        {displayLabel}
       </Box>
       <Box
         component="span"
