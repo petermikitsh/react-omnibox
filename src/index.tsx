@@ -63,6 +63,8 @@ export const Omnibox = <T,>({
 
   useHotkeys("command+k, ctrl+k", () => {}, {
     filter: (e) => {
+      // fix: Chrome on Windows will focus the address bar
+      e.preventDefault();
       onClose?.(e, "escapeKeyDown");
       return true;
     },
