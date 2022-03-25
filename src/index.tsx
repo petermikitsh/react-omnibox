@@ -118,15 +118,6 @@ export const Omnibox = <T,>({
           PopperComponent={({ children }) => <>{children}</>}
           inputValue={query}
           onChange={(...args) => {
-            const [, value] = args;
-
-            if (value && getOptionUrl) {
-              const url = getOptionUrl(value);
-              if (url) {
-                return (window.location.href = url);
-              }
-            }
-
             return onChange?.(...args);
           }}
           options={noQuery && startContent ? [] : options}

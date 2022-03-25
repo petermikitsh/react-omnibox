@@ -42,7 +42,9 @@ const Template: ComponentStory<typeof Omnibox> = (
         onQueryChange={(newQuery) => {
           setQuery(newQuery);
         }}
-        onChange={(_, value) => {
+        onChange={(...onChangeArgs) => {
+          args.onChange?.(...onChangeArgs);
+          const [_, value] = onChangeArgs;
           if (!hasLinks) {
             setValue(value);
             setQuery("");
@@ -107,6 +109,9 @@ ResultQuery.args = {
   ...sandwichOptions,
   open: true,
   query: "Cheese",
+  onChange: (_, value) => {
+    console.log("Selected value is", value);
+  },
 };
 
 const searchEngineOptions: Partial<OmniboxProps<Option>> = {
@@ -132,6 +137,9 @@ Links.args = {
   ...searchEngineOptions,
   open: true,
   getOptionUrl: (opt) => opt.url,
+  onChange: (_, value) => {
+    console.log("Selected value is", value);
+  },
 };
 
 export const Spanish: Story = Template.bind({});
